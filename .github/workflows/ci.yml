@@ -26,8 +26,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: cd frontend && npm install
+      - run: cd frontend && npm install --include=dev
       - run: cd frontend && npx oxlint --ignore-path .gitignore || true
+        env:
+          NODE_ENV: development
 
   build-frontend:
     name: Build Frontend
@@ -37,6 +39,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: cd frontend && npm install && npm run build
+      - name: Build Frontend SPA
+        run: |
+          cd frontend
+          npm install --include=dev
+          npx vite build
         env:
+          NODE_ENV: development
           VITE_API_URL: https://pricetracker-backend-8log.onrender.com/api
