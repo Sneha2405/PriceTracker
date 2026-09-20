@@ -208,6 +208,14 @@ export default function ProductPage() {
                   📦 Stock Remaining: {latest.stock_qty} {latest.stock_qty === 1 ? 'unit' : 'units'}
                 </span>
               )}
+              {(() => {
+                const uniqueSignatures = new Set(logs.map((l) => l.structure_signature).filter(Boolean));
+                return uniqueSignatures.size > 1 ? (
+                  <span className="badge badge-yellow text-xs" title="Storefront markup structure changed between scrape runs">
+                    ⚠️ DOM Structure Shift Detected
+                  </span>
+                ) : null;
+              })()}
               <span className="badge badge-muted text-xs">
                 <ClockIcon size={12} /> Every {product.scrape_interval_minutes ? Math.round(product.scrape_interval_minutes / 60) : 2}h
               </span>

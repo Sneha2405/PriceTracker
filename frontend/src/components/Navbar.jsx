@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { TrendIcon } from './Icons';
+import NotificationCenter from './NotificationCenter';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -23,6 +24,7 @@ export default function Navbar() {
           <NavLink to="/search" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             + Track Product
           </NavLink>
+          <NotificationCenter />
         </nav>
       </div>
     </header>
