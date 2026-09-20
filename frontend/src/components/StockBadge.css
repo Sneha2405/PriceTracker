@@ -1,0 +1,46 @@
+/* StockBadge.css */
+.stock-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* In Stock: Solid filled circle */
+.status-dot.dot-green {
+  border-radius: 50%;
+  background: var(--accent-emerald, #22c55e);
+}
+
+/* Out of Stock: Hollow ring/outline circle (accessible shape distinction for Protanopia/Deuteranopia) */
+.status-dot.dot-red {
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--accent-rose, #f43f5e);
+}
+
+/* Low Stock: Solid square */
+.status-dot.dot-amber {
+  border-radius: 1px;
+  background: var(--accent-amber, #f59e0b);
+}
+
+/* Unknown: Hollow square ring */
+.status-dot.dot-muted {
+  border-radius: 1px;
+  background: transparent;
+  border: 1px solid var(--text-muted, #78716c);
+}
