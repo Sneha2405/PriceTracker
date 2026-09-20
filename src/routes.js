@@ -34,6 +34,7 @@ router.post('/scrape/run', async (req, res) => {
   }
 });
 
+
 // In-memory store for live scrape results (keyed by productId, cleared after read).
 // Avoids a DB round-trip just to communicate the scrape outcome back to the UI.
 const scrapeResultCache = new Map();

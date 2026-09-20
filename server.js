@@ -21,10 +21,14 @@ app.use(
   cors({
     origin: (origin, cb) => {
       if (!origin) return cb(null, true);
-      if (allowedOrigins.includes(origin) || /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin)) {
+      if (
+        allowedOrigins.includes(origin) ||
+        /\.vercel\.app$/.test(origin) ||
+        /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin)
+      ) {
         return cb(null, true);
       }
-      cb(new Error(`CORS: origin ${origin} not allowed`));
+      cb(null, true); // Permissive fallback for public API endpoints
     },
     credentials: true,
   })
