@@ -1,5 +1,6 @@
 // server.js — Express entry point for the INE Price Tracker backend.
 // Runs on Render (production) or locally (dev).
+process.env.PLAYWRIGHT_BROWSERS_PATH = '0';
 require('dotenv').config();
 
 const express = require('express');
