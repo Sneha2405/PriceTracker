@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - run: npm install --ignore-scripts
       - run: node --check server.js src/routes.js src/db.js src/scraper/catalogClient.js src/scraper/scrapeRunner.js src/scraper/productScraper.js
 
@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - run: cd frontend && npm install --include=dev
       - run: cd frontend && npx oxlint --ignore-path .gitignore || true
         env:
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - name: Build Frontend SPA
         run: |
           cd frontend
