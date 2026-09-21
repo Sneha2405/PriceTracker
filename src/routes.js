@@ -22,7 +22,7 @@ router.post('/scrape/run', async (req, res) => {
   // Respond immediately; scraping (esp. with Playwright/retries) can
   // exceed typical cron-service HTTP timeouts. Run in the background
   // and let the dashboard reflect results once written.
-  res.status(202).json({ status: 'accepted' });
+  res.status(200).send('OK');
 
   const force = req.query.force === 'true' || req.body?.force === true;
 
